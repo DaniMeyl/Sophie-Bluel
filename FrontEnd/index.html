@@ -12,23 +12,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
+	<script src="https://kit.fontawesome.com/555b6ea9b8.js" crossorigin="anonymous"></script>
 </head>
 <body>
+	<div class="editionMode">
+		<a class="mode-edition"><i class="fa-regular fa-pen-to-square fa-lg"></i>Mode édition</a>
+		<button class="button-edition">publier les changements</button>
+	</div>
 <header>
-	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
-	<nav>
-		<ul>
-			<li><a href=#portfolio>projets</a></li>
-			<li><a href=#contact>contact</a></li>
-			<li><a href=login.html>login</a></li>
-			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
-		</ul>
-	</nav>
+	
+		<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
+		<nav>
+			<ul>
+				<li><a href=#portfolio>projets</a></li>
+				<li><a href=#contact>contact</a></li>
+				<li><a class="logout" href=login.html>login</a></li>
+				<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+			</ul>
+		</nav>
+	
 </header>
 <main>
 	<section id="introduction">
-		<figure>
+		<figure class="image-intro">
 			<img src="./assets/images/sophie-bluel.png" alt="">
+			<a class="modifier"><i class="fa-regular fa-pen-to-square fa-lg"></i>modifier</a>
 		</figure>
 		<article>
 			<h2>Designer d'espace</h2>
@@ -38,8 +46,10 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projets</h2>
-
+		<div class="projets">
+			<h2>Mes Projets</h2>
+			<a class="modifier"><i class="fa-regular fa-pen-to-square fa-lg"></i>modifier</a>
+		</div>
 		<div class="filters">
 			<button class="all button ">Tous</button>
 			<button class="objects button">Objets</button>

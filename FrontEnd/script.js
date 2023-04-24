@@ -1,11 +1,13 @@
 /* récuperation des données et insertion des projets sur la page */
 
 const gallery = document.querySelector(".gallery");
-
+//on demande a l'API les données works
 fetch("http://localhost:5678/api/works")
+// on recupere les donnée en format.json
   .then(function (response) {
     return response.json();
   })
+  // on traite les données
   .then(function (dataJson) {
     const projets = dataJson;
     projets.forEach((item) => {
@@ -40,7 +42,7 @@ function importProjet(src, alt, categoryProjet) {
   return figures;
 };
 
-/******   filtres   ******/
+/**************   filtres   ******/
 
 const allButton = document.querySelectorAll(".filters button");
 allButton[0].classList.add("button-active");
@@ -65,3 +67,33 @@ allButton.forEach((button) => {
 
   });
 });
+
+//**********  arrivé sur le page une fois connecté *********/
+
+const dataStorage = localStorage.getItem("token");
+const logOut = document.querySelector(".logout");
+const divModifier = document.querySelectorAll("a.modifier");
+const divEdition = document.querySelector(".editionMode");
+console.log ( divEdition);
+
+if (dataStorage) { 
+  //login devient logout
+  logOut.textContent = "logout";
+  //les filtres disparaissent
+  allButton.forEach ( (button)=> {button.style.display = "none";});
+  //la div edition mode en haut apparait
+  divEdition.style.display ="flex";
+  //les div modifier apparaissent
+  divModifier.forEach ((div) => { 
+  div.style.display ="flex";});
+
+  //si on clik sur logout, localStorage efface le jeton,
+  // et on renvoie sur la page index.html classique
+  logOut.addEventListener("click", ()=>
+    {
+    localStorage.removeItem("token");
+    logOut.href = "index.html" 
+    })
+
+}
+

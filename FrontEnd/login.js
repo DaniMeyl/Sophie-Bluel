@@ -1,10 +1,10 @@
-const loginActive = document.querySelector('#loginActiv');
-loginActive.style.fontWeight = "600";
+//const loginActive = document.querySelector('#loginActiv');
+//loginActive.style.fontWeight = "600";
 
 const formLogin = document.querySelector("#formLogin");
 
-formLogin.addEventListener("submit", (e) => {
-  e.preventDefault();
+formLogin.addEventListener("submit", (event) => {
+  event.preventDefault();
   const email = formLogin.email.value;
   const password = formLogin.password.value;
   //Envoie une requête POST à l'API pour se connecter, avec l'URL de l'API
@@ -23,7 +23,7 @@ formLogin.addEventListener("submit", (e) => {
       //Vérifie si la réponse de l'API contient un jeton d'accès.
       if (data.token) {
         //Enregistre le jeton d'accès dans le stockage local du navigateur.
-        localStorage.setItem("authToken", data.token);
+        localStorage.setItem("token", data.token);
         //Redirige l'utilisateur vers la page d'accueil.
         window.location.href = "index.html";
       } else {

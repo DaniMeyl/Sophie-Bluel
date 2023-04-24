@@ -30,6 +30,9 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 ol, ul {
 	list-style: none;
@@ -48,19 +51,25 @@ table {
 }
 /** end reset css**/
 body {
-	max-width: 1140px;
+	
 	margin:auto;
 	font-family: 'Work Sans' ;
 	font-size: 14px;
 }
 header {
+	
+	margin: 50px 0px 139px 10px;
+	max-width: 1140px;
 	display: flex;
 	justify-content: space-between;
-	margin: 50px 0px 139px 10px;
+	width:80%;
+	
 }
-section {
-	margin: 50px 0
-}
+
+main { max-width: 1140px;
+	padding-left: 13%;
+	padding-right:13%;}
+
 
 h1{
 	display: flex;
@@ -97,7 +106,7 @@ nav li {
 	font-size: 1.2em;
 	
 }
-#loginActiv{ font-weight:600 !important;}
+
 
 nav a:hover {
 	color: #B1663C; 
@@ -150,7 +159,51 @@ nav a:hover {
 	width: 100%;
 
 }
-/*.hidden {display: none;}*/
+
+/*editor mode*/
+.editionMode {background-color: black;
+height: 59px;
+width:100%;
+color:white;
+display:none;
+justify-content: center;
+align-items: center;
+gap:20px;}
+
+.button-edition{
+	font-family: 'Syne';
+	font-size: 14px;
+	font-weight: 700;
+	background-color: white;
+	border: 1px solid black;
+	border-radius: 60px;
+	padding: 8px 23px;
+	cursor: pointer;
+}
+a.mode-edition {display:flex;
+gap: 10px;
+font-size:16px;
+align-items: center;}
+
+.projets {display: flex;
+	flex-direction: row;
+	gap:31px;
+	align-items: center;
+
+}
+
+
+a.modifier { display:none;
+	margin-top:22px;
+	font-size: 14px;
+	align-items: center;
+	gap:10px;
+	cursor: pointer;	
+}
+
+.image-intro a.modifier {padding-left:53px;
+margin-top:15px;}
+
 
 
 /* filtre */
@@ -190,6 +243,7 @@ nav a:hover {
 #contact, #login {
 	width: 50%;
 margin: auto;
+margin-top:50px;
 }
 #contact > * , #login > *{
 	text-align: center;
@@ -221,7 +275,8 @@ margin: auto;
 }
 
 #login p {text-decoration:underline ;}
-
+#login {display: block;
+width:379px;}
 input[type="submit"]{
 	font-family: 'Syne';
 	font-weight: 700;
@@ -231,6 +286,7 @@ input[type="submit"]{
 	width: 180px;
 	text-align: center;
 	border-radius: 60px ;
+	cursor: pointer;
 }
 
 footer nav ul {
@@ -238,4 +294,5 @@ footer nav ul {
 	justify-content: flex-end;
 	margin: 2em
 }
+footer {width:100%;}
 
