@@ -1,7 +1,6 @@
 /********* récuperation des données et insertion des projets sur la page ********************/
 
 const modal = document.querySelector("#modal");
-//on pointe la gallerie pour y ajouter les projets ensuite
 const gallery = document.querySelector(".gallery");
 let data =[];
 const getWorks = (id) => {//console.log(id);
@@ -16,7 +15,7 @@ const getWorks = (id) => {//console.log(id);
     data = dataJson;
     let dataForGallery = [];
     if (id === 0){dataForGallery = dataJson}
-    else { //console.log("je suis dans le else", dataJson.length)
+    else { 
       for (let i=0 ; i<dataJson.length ; i++){
         //console.log(dataJson[i].categoryId);
         if ( id === dataJson[i].categoryId){ 
@@ -25,7 +24,7 @@ const getWorks = (id) => {//console.log(id);
       }
     } 
     //on ajoute les projets dans la gallerie
-    //console.log(dataForGallery);
+   
     addWorksGallery(dataForGallery);
 
     const buttons = document.getElementsByClassName("btn");
@@ -50,7 +49,7 @@ getWorks(0);
 function addWorksGallery (data) {
  
 //on supprime ce qu'il y avait avant
-  var child = gallery.lastElementChild;
+  let child = gallery.lastElementChild;
   while (child) {
     gallery.removeChild(child);
     child = gallery.lastElementChild;
@@ -128,7 +127,6 @@ const logOut = document.querySelector(".logout");
 const buttonFiltres = document.querySelector(".filters")
 const divModifier = document.querySelectorAll("button.modifier");
 const divEdition = document.querySelector(".editionMode");
-//const modal = document.querySelector("#modal");
 modal.style.display ="none"
 
 if (dataStorage) { 
@@ -144,7 +142,7 @@ if (dataStorage) {
   divModifier.forEach ((div) => { 
   div.style.display ="flex";});
 
-  //si on clik sur logout, localStorage efface le token,
+  //si on clique sur logout, localStorage efface le token,
   // et on renvoie sur la page index.html classique
   logOut.addEventListener("click", ()=>
     {
@@ -155,15 +153,12 @@ if (dataStorage) {
 /********************** ouverture/fermeture Modal 1 et 2  *********************************/
 
 const buttonModifier = document.querySelector("#button-modifier");
-//const modal1 = document.querySelector("#divModal");
 const modal2 = document.querySelector(".divModal2");
-//const openModal2 = document.querySelector(".button-addpicture");
 
 const showModalOne = () => { 
   
   modal.style.display = "block"; 
-  //modal2.style.display="none";
-
+  
   const modalContainer = document.querySelector(".modalContainer")
 
   const divModal = document.createElement("div");
@@ -204,7 +199,7 @@ const showModalOne = () => {
 
   //on ajoute les projets a la gallerie modal
   AddWorksGalleryModale(data)
- //clik sur les croix => ferme la modal et supprime son contenu
+ //clique sur la croix => ferme la modal et supprime son contenu
   closeModal.addEventListener ( "click" , ()=>{
       modal.style.display ="none";
       var child = modalContainer.lastElementChild;
@@ -214,7 +209,7 @@ const showModalOne = () => {
       }
      }
     )
-  // clik en dehors de la divModal, ferme la modal et supprime son contenu
+  // clique en dehors de la modal, ferme la modal et supprime son contenu
   modal.addEventListener('click', (event) => {
       if (event.target.className === "modalContainer" ) {
         modal.style.display="none"
@@ -225,10 +220,10 @@ const showModalOne = () => {
         }             
       }
     });
-  //clik sur ajout photo, supprime la modal1 et creer la modal2
+  //clique  sur ajout photo, supprime la modal1 et creer la modal2
   const openModal2 = document.querySelector(".button-addpicture");
   openModal2.addEventListener("click", () =>{
-    /*var child = modalContainer.lastElementChild;
+    /*let child = modalContainer.lastElementChild;
       while (child) {
         modalContainer.removeChild(child);
         child = modalContainer.lastElementChild;
@@ -238,11 +233,10 @@ const showModalOne = () => {
   });  
 }
 
-//clik sur modifier => creer la modal 1
+
 buttonModifier.addEventListener("click", showModalOne );
-//
+
 function showModalTwo (){
-  
   
   const modalContainer = document.querySelector(".modalContainer")
   const divModal2 = `<div class="divModal2">
@@ -278,11 +272,11 @@ function showModalTwo (){
 
   modalContainer.innerHTML = divModal2;
 
-  //clik sur la croix => ferme la modal et supprime son contenu
+  //clique sur la croix => ferme la modal et supprime son contenu
   const closeModal2 = document.querySelector(".close-modal")
   closeModal2.addEventListener ( "click" , ()=>{
       modal.style.display ="none";
-      var child = modalContainer.lastElementChild;
+      let child = modalContainer.lastElementChild;
       while (child) {
       modalContainer.removeChild(child);
       child = modalContainer.lastElementChild;
@@ -335,11 +329,10 @@ function showModalTwo (){
         }
        else { 
             buttonSubmit.style.backgroundColor = ''; 
-            //msgError.innerText = "Veuillez remplir tous les champs et/ou respectez le format image jpg ou png";
             
         }
     });
-    //quand on clik sur submit
+    //quand on clique sur submit
     buttonSubmit.addEventListener("click", (e) => {
         e.preventDefault();
        
@@ -375,7 +368,7 @@ function showModalTwo (){
                 });
             }
             const modalContainer = document.querySelector(".modalContainer")
-            var child = modalContainer.lastElementChild;
+            let child = modalContainer.lastElementChild;
             while (child) {
                 modalContainer.removeChild(child);
                 child = modalContainer.lastElementChild;
@@ -398,7 +391,7 @@ function showModalTwo (){
 function AddWorksGalleryModale(data) {
   const modalGallery = document.querySelector(".modal-gallery");
   //on efface d'abord la gallery modal
-  var child = modalGallery.lastElementChild;
+  let child = modalGallery.lastElementChild;
   while (child) {
     modalGallery.removeChild(child);
     child = modalGallery.lastElementChild;
